@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; worker-src blob:; connect-src 'none'; img-src 'self'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="Read a reviewed GEDCOM in your browser. No family file is uploaded or saved by this viewer.">
+  <title>Genealogy Engine · Family beta</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to viewer</a>
+  <header class="site-header">
+    <div class="wordmark"><span class="tree-mark" aria-hidden="true">✣</span><span>Genealogy Engine<small>Family beta</small></span></div>
+    <span class="privacy-badge"><span aria-hidden="true">●</span> Processed on your device</span>
+  </header>
+  <main id="main">
+    <section class="intro" aria-labelledby="intro-title">
+      <p class="eyebrow">A closer look at your family records</p>
+      <h1 id="intro-title">Your family tree,<br><em>as recorded.</em></h1>
+      <p class="intro-copy">Explore ancestors, dates and family connections from your GEDCOM. Your file is read in this browser. It is never uploaded to a server.</p>
+      <p class="boundary">This is a viewer of imported assertions. It does not verify history, retrieve archive records or generate discoveries.</p>
+    </section>
+
+    <section id="import-panel" class="import-card" aria-labelledby="import-title">
+      <div><p class="eyebrow">Start with a small branch</p><h2 id="import-title">Open your GEDCOM</h2><p>Export GEDCOM 5.5.1 in UTF-8 from your genealogy program. Maximum file size: 5 MiB.</p></div>
+      <div class="privacy-note">
+        <h3>Before you open a file</h3>
+        <p>Use an export you have reviewed, with living and unknown people, private notes, contact details and media removed. This beta displays ancestors with recorded deaths before 1926. Recently deceased people and uncertain records are withheld too.</p>
+        <p>The website is public, but your tree stays in this browser. Nothing is saved by the viewer. Clear it whenever you wish; refreshing or leaving the page clears it too. Access also expires after 30 minutes without activity or two hours.</p>
+        <label class="consent"><input id="consent" type="checkbox"><span>I understand and authorise reading this reviewed file on my device.</span></label>
+      </div>
+      <div class="file-row">
+        <label class="file-control" for="gedcom"><span>Choose a GEDCOM file</span><input id="gedcom" type="file" accept=".ged,.gedcom" disabled aria-describedby="file-help"></label>
+        <button id="read-tree" class="primary" disabled>Read my tree <span aria-hidden="true">→</span></button>
+      </div>
+      <p id="file-help" class="small">The original file stays untouched. Notes, source prose, media and raw records are not shown. Automated filtering cannot reliably anonymise every name or place; review the export first.</p>
+    </section>
+
+    <div class="status-row"><p id="status" role="status" aria-live="polite">No file has been read.</p><button id="clear-tree" class="text-button" disabled>Clear my tree</button></div>
+    <noscript><p class="notice">JavaScript is needed to read a GEDCOM locally. No file will be sent to a server.</p></noscript>
+
+    <section id="tree-panel" hidden aria-label="Imported family tree">
+      <div class="summary-grid" id="summary"></div>
+      <div id="notices" class="notices" hidden></div>
+      <div class="workspace">
+        <aside class="people-pane" aria-labelledby="people-title">
+          <div class="pane-heading"><p class="eyebrow">Your recorded ancestors</p><h2 id="people-title">People</h2></div>
+          <label class="search-label" for="search">Find a name</label><input id="search" type="search" placeholder="Search ancestors…" autocomplete="off">
+          <p id="people-count" class="small"></p>
+          <div id="people-list" class="people-list" aria-label="Ancestors"></div>
+          <div class="pagination"><button id="previous" class="secondary">Previous</button><span id="page-number" class="small"></span><button id="next" class="secondary">Next</button></div>
+        </aside>
+        <article id="person-detail" class="detail-pane" aria-label="Selected ancestor"></article>
+      </div>
+      <p class="session-note" id="session-note"></p>
+    </section>
+  </main>
+  <footer><p>Read what the tree records. Keep uncertainty visible.</p><p>Family beta · No archive integration · No synthetic evidence</p></footer>
+</body>
+</html>
