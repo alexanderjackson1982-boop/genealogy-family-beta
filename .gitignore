@@ -1,0 +1,26 @@
+# Only the public viewer and invented test fixtures belong in this repository.
+*.[gG][eE][dD]
+*.[gG][eE][dD][cC][oO][mM]
+*.[gG][dD][zZ]
+*.json
+!package.json
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.zip
+*.bundle
+original.ged
+tree.json
+data/
+uploads/
+exports/
+node_modules/
+_site/
+.venv/
+work/
+__pycache__/
+.DS_Store
+.env
+.env.*
+!.env.example
