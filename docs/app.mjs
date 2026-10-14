@@ -225,7 +225,7 @@ async function readTree() {
       status(message,true);
       updateControls();
     };
-    worker.onerror = () => finishError('The file could not be processed in this browser. Try a current browser and a reviewed GEDCOM 5.5.1 UTF-8 export.');
+    worker.onerror = () => finishError('The file could not be processed in this browser. Try a current browser and a GEDCOM 5.5.1 UTF-8 export.');
     worker.onmessage = ({data}) => {
       if (job !== epoch) return;
       stopWorker();
@@ -252,7 +252,7 @@ async function readTree() {
       updateControls();
       $('tree-panel').scrollIntoView({behavior:'smooth',block:'start'});
     };
-    parsingTimer = setTimeout(() => finishError('Reading took too long and was stopped. Try a smaller reviewed branch.'),20_000);
+    parsingTimer = setTimeout(() => finishError('Reading took too long and was stopped. Try a smaller GEDCOM export.'),20_000);
     const bytes = await file.arrayBuffer();
     if (job !== epoch || !worker) return;
     worker.postMessage({bytes},[bytes]);

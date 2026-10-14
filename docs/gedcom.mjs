@@ -8,7 +8,7 @@ const POINTER = /^@[^@\s]+@$/;
 const FALSE = new Set(['N', 'NO', 'FALSE', '0']);
 const NOTICES = Object.freeze({
   omissions: 'Notes, contacts, media and source transcriptions are omitted. No archive records are retrieved.',
-  review: 'Automatic filtering cannot guarantee anonymity. Use an export you have manually reviewed.',
+  review: 'Automatic filtering cannot guarantee anonymity in every name or place. Check displayed details before sharing screenshots.',
   hidden: 'Living people and people without an unambiguous death before 1926 are withheld.',
   restricted: 'Records with privacy, living or other restriction flags are withheld.',
   fields: 'Some names, dates or places were withheld because they contain unsupported or potentially private text.',

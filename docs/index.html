@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; worker-src blob:; connect-src 'none'; img-src 'self'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
-  <meta name="description" content="Read a reviewed GEDCOM in your browser. No family file is uploaded or saved by this viewer.">
+  <meta name="description" content="Open your GEDCOM without removing people. Privacy filters run on your device; no family file is uploaded or saved by this viewer.">
   <title>Genealogy Engine · Family beta</title>
   <link rel="stylesheet" href="./styles.css">
   <script type="module" src="./app.mjs"></script>
@@ -25,18 +25,18 @@
     </section>
 
     <section id="import-panel" class="import-card" aria-labelledby="import-title">
-      <div><p class="eyebrow">Start with a small branch</p><h2 id="import-title">Open your GEDCOM</h2><p>Export GEDCOM 5.5.1 in UTF-8 from your genealogy program. Maximum file size: 5 MiB.</p></div>
+      <div><p class="eyebrow">No need to remove people</p><h2 id="import-title">Open your GEDCOM</h2><p>Use your normal GEDCOM 5.5.1 UTF-8 export, including living people. Maximum file size: 5 MiB.</p></div>
       <div class="privacy-note">
         <h3>Before you open a file</h3>
-        <p>Use an export you have reviewed, with living and unknown people, private notes, contact details and media removed. This beta displays ancestors with recorded deaths before 1926. Recently deceased people and uncertain records are withheld too.</p>
+        <p>You do not need to delete anyone from your tree or export. The viewer automatically hides living, unknown, recently deceased, private and contradictory records. Only eligible ancestors with recorded deaths before 1926 are displayed. Notes, contact fields, source prose and media are not shown.</p>
         <p>The website is public, but your tree stays in this browser. Nothing is saved by the viewer. Clear it whenever you wish; refreshing or leaving the page clears it too. Access also expires after 30 minutes without activity or two hours.</p>
-        <label class="consent"><input id="consent" type="checkbox"><span>I understand and authorise reading this reviewed file on my device.</span></label>
+        <label class="consent"><input id="consent" type="checkbox"><span>I understand and authorise reading this file and applying privacy filters on my device.</span></label>
       </div>
       <div class="file-row">
         <label class="file-control" for="gedcom"><span>Choose a GEDCOM file</span><input id="gedcom" type="file" accept=".ged,.gedcom" disabled aria-describedby="file-help"></label>
         <button id="read-tree" class="primary" disabled>Read my tree <span aria-hidden="true">→</span></button>
       </div>
-      <p id="file-help" class="small">The original file stays untouched. Notes, source prose, media and raw records are not shown. Automated filtering cannot reliably anonymise every name or place; review the export first.</p>
+      <p id="file-help" class="small">The original file stays untouched. Automatic filtering cannot guarantee anonymity in every name or place; check displayed details before sharing screenshots.</p>
     </section>
 
     <div class="status-row"><p id="status" role="status" aria-live="polite">No file has been read.</p><button id="clear-tree" class="text-button" disabled>Clear my tree</button></div>
