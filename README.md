@@ -1,18 +1,18 @@
 # Genealogy Engine family browser beta
 
-A public website that reads a reviewed GEDCOM entirely in the visitor’s browser. No family file is uploaded, saved by the application, added to a repository or sent to an archive/AI service.
+A public website that reads a GEDCOM entirely in the visitor’s browser, with automatic privacy filtering. No family file is uploaded, saved by the application, added to a repository or sent to an archive/AI service.
 
 The original Genealogy Engine v0.6 Python prototype stays unchanged. This separate browser importer supports a limited GEDCOM 5.5.1 UTF-8 subset. It is a family-tree viewer with imported assertions and generic family links; it does not evaluate genealogical evidence or generate synthetic discoveries.
 
 ## What your father does
 
-1. Export a small reviewed branch as GEDCOM 5.5.1 with UTF-8 encoding. Exclude living/unknown people, private notes, contacts, source transcriptions and media in his source program.
+1. Export his normal tree as GEDCOM 5.5.1 with UTF-8 encoding, within the 5 MiB and other import limits below. There is no need to remove people or edit the source tree. Living/unknown people and private material may remain in the file; the viewer filters what it displays on his device.
 2. Open the website in a current browser, read the processing notice and check its consent box.
 3. Choose his `.ged` or `.gedcom` file and select **Read my tree**. The file stays on his device.
 4. Search names, select ancestors and compare recorded dates/family links with his source program. Multiple birth dates remain visible without a preferred conclusion.
 5. Select **Clear my tree** when finished. Reloading or leaving the page clears the viewer too.
 
-The conservative first-beta policy displays only people whose recorded death dates are bounded before 1926 and whose records are not restricted or contradictory. Recently deceased people and people with uncertain deaths are therefore withheld. This is display eligibility, not a factual determination of death. Automatic text screening is incomplete; the export still needs manual review.
+The conservative first-beta policy displays only people whose recorded death dates are bounded before 1926 and whose records are not restricted or contradictory. Living, unknown, recently deceased and private records are automatically withheld. This is display eligibility, not a factual determination of death. No manual removal is required to use the viewer. Automatic text screening is incomplete; check displayed names and places before sharing screenshots.
 
 Only supported names, places, dates, opaque session identifiers, citation counts and eligible family connections are displayed. Notes, source prose, media, contact fields, unstructured event prose and raw GEDCOM are omitted. Input limits are 5 MiB, 50,000 fields, depth 32 and 65,536 characters per line, with additional event/relationship output limits.
 

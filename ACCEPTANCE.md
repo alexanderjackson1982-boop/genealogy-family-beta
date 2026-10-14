@@ -1,6 +1,6 @@
 # Family browser beta acceptance
 
-Reviewed 13 October 2026. Status: published and checked at https://alexanderjackson1982-boop.github.io/genealogy-family-beta/. Repository: https://github.com/alexanderjackson1982-boop/genealogy-family-beta. No real family data was used.
+Reviewed 13 October 2026; onboarding updated 14 October 2026. Status: published and checked at https://alexanderjackson1982-boop.github.io/genealogy-family-beta/. Repository: https://github.com/alexanderjackson1982-boop/genealogy-family-beta. No real family data was used.
 
 | Check | Result |
 | --- | --- |
@@ -15,10 +15,12 @@ Reviewed 13 October 2026. Status: published and checked at https://alexanderjack
 | Final visual and privacy check | In-app browser reviewed desktop/narrow layouts, recorded dates, family links and an empty privacy flag withholding a historical ancestor in the final bundle. Clear resets file, consent and visible tree. |
 | Public deployment files | Exactly six reviewed static files under docs; no real GEDCOM, original engine, synthetic evidence repository or credentials. |
 
-Live deployment checks passed: HTTP redirects to HTTPS; the TLS certificate validates; all six static files match their reviewed SHA-256 hashes; module MIME types are correct. Pages enforces HTTPS and publishes main/docs. The restrictive content policy is unchanged. A live invented GEDCOM import showed three historical ancestors, withheld one living test person, displayed both conflicting birth dates, navigated family connections and cleared the visible tree, consent and file selection. The no-network and expiry checks above were performed before deployment against the identical application files. The father’s actual genealogy export remains untested; start with a small reviewed branch on his own device.
+Live deployment checks passed: HTTP redirects to HTTPS; the TLS certificate validates; all six static files match their reviewed SHA-256 hashes; module MIME types are correct. Pages enforces HTTPS and publishes main/docs. The restrictive content policy is unchanged. A live invented GEDCOM import showed three historical ancestors, withheld one living test person, displayed both conflicting birth dates, navigated family connections and cleared the visible tree, consent and file selection. The no-network and expiry checks above were performed before deployment against the identical application files. The father’s actual genealogy export remains untested; he can open his normal supported export on his own device without removing people. Existing file-size, field-count and other limits still apply.
 
-The beta conservatively withholds people with no unambiguous recorded death before 1926, including recently deceased relatives. It supports UTF-8 GEDCOM 5.5.1 only. It omits raw records, notes, source prose, media, contact fields and unsupported event payloads. Automated name/place screening cannot guarantee anonymity; review the export manually.
+The beta conservatively withholds people with no unambiguous recorded death before 1926, including recently deceased relatives. It supports UTF-8 GEDCOM 5.5.1 only. It omits raw records, notes, source prose, media, contact fields and unsupported event payloads. Automated name/place screening cannot guarantee anonymity; check displayed details before sharing screenshots.
 
 Application deletion releases its references and prevents further access. Suspended tabs clear expired data on resume. No forensic memory-erasure or deletion of local source files, screenshots, operating-system artifacts or host visit metadata is promised.
 
 The interface and code can be public as requested; the GEDCOM is processed locally in the visitor’s browser. No synthetic discovery, evidence evaluator, AI integration or archive retrieval is included.
+
+On 14 October, the mandatory manual-removal instructions were removed from the page, consent text, import notice and guide. The display eligibility rules and privacy boundaries are unchanged. All 33 regression checks pass after rebuilding the worker. An independent complete-export probe accepted six invented people plus private notes, contacts and media references, displayed one historical person and withheld five living, unknown, recent or private records without echoing private canaries.

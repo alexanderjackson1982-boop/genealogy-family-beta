@@ -12,7 +12,7 @@ globalThis.onmessage = ({data}) => {
     const result = parseGedcom(data.bytes);
     globalThis.postMessage({ok:true,result});
   } catch (error) {
-    const message = error instanceof GedcomImportError ? error.message : 'The file could not be read. Try a reviewed GEDCOM 5.5.1 UTF-8 export.';
+    const message = error instanceof GedcomImportError ? error.message : 'The file could not be read. Try a GEDCOM 5.5.1 UTF-8 export.';
     globalThis.postMessage({ok:false,message});
   }
 };\n`;
